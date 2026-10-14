@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://diw1r68ktveea"]
+
+[ext_resource type="Script" uid="uid://kguytr7k43cv" path="res://Script/simple_obstacle.gd" id="1_7hlim"]
+[ext_resource type="Shader" uid="uid://cj1xgkja4aa3c" path="res://Asset/material/basic_color.gdshader" id="1_ssott"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_7hlim"]
+shader = ExtResource("1_ssott")
+shader_parameter/custom_color = Color(1, 1, 1, 1)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_b5nph"]
+
+[node name="SimpleObstacle" type="StaticBody2D" unique_id=1003085193]
+script = ExtResource("1_7hlim")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=333379781]
+material = SubResource("ShaderMaterial_7hlim")
+shape = SubResource("CircleShape2D_b5nph")

@@ -1,0 +1,25 @@
+[gd_scene format=3 uid="uid://dle2hklxwyd23"]
+
+[ext_resource type="Script" uid="uid://bqwcu1fi7pd0u" path="res://Script/Structure/turret.gd" id="1_hqovb"]
+[ext_resource type="Texture2D" uid="uid://bjtxji2y5gkcv" path="res://Asset/sprite/turret.png" id="1_i4klm"]
+[ext_resource type="TileSet" uid="uid://riruik75pvtt" path="res://Resource/tile_set/world_tile_set.tres" id="3_rak4u"]
+
+[node name="Turret" type="Area2D" unique_id=478144874]
+script = ExtResource("1_hqovb")
+
+[node name="Structure_Footprint" type="TileMapLayer" parent="." unique_id=928292187]
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray(0, 0, 0, 0, 0, 0, 0, 0, 1, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_set = ExtResource("3_rak4u")
+navigation_enabled = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053874604]
+position = Vector2(7.0000005, 6)
+rotation = 3.1415927
+scale = Vector2(0.655, 0.655)
+texture = ExtResource("1_i4klm")
+
+[node name="Fire_Rate_Timer" type="Timer" parent="." unique_id=2098041769]
+autostart = true
+
+[connection signal="timeout" from="Fire_Rate_Timer" to="." method="_on_fire_rate_timer_timeout"]

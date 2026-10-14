@@ -1,0 +1,27 @@
+[gd_scene format=3 uid="uid://ssob4ogrcoja"]
+
+[ext_resource type="PackedScene" uid="uid://d22oi1epynoo0" path="res://Scene/map.tscn" id="1_6nwcg"]
+[ext_resource type="Script" uid="uid://bb8ifupp1klbg" path="res://Script/Global_Autoload/game_manager.gd" id="1_hfyjg"]
+[ext_resource type="PackedScene" uid="uid://codbrps0dv0ko" path="res://Scene/Player.tscn" id="1_i3h7v"]
+[ext_resource type="PackedScene" uid="uid://diw1r68ktveea" path="res://Scene/simple_obstacle.tscn" id="2_6nwcg"]
+[ext_resource type="Script" uid="uid://cfcb76qxbraqf" path="res://Script/Resource_Definitions/structure_definition.gd" id="4_6ibmm"]
+[ext_resource type="Resource" uid="uid://dub15gaobrsdk" path="res://Resource/weapons/weapon_starter.tres" id="4_l02yq"]
+[ext_resource type="Resource" uid="uid://55w75kp2hipl" path="res://Resource/structure/turret.tres" id="5_wnnrw"]
+[ext_resource type="Script" uid="uid://c4i3qi645jv62" path="res://Script/Resource_Definitions/weapon_definition.gd" id="7_uen27"]
+
+[node name="WorldRoot" type="Node2D" unique_id=999615986]
+script = ExtResource("1_hfyjg")
+
+[node name="Map" parent="." unique_id=1335696351 instance=ExtResource("1_6nwcg")]
+
+[node name="PlayerController" parent="." unique_id=397585109 instance=ExtResource("1_i3h7v")]
+position = Vector2(613, 231)
+equipped_weapon = ExtResource("4_l02yq")
+equipped_structure = ExtResource("5_wnnrw")
+available_structures = Array[ExtResource("4_6ibmm")]([ExtResource("5_wnnrw")])
+available_weapons = Array[ExtResource("7_uen27")]([ExtResource("4_l02yq")])
+
+[node name="StructureLayer" type="Node2D" parent="." unique_id=506206031]
+
+[node name="SimpleObstacle" parent="StructureLayer" unique_id=1635299973 instance=ExtResource("2_6nwcg")]
+position = Vector2(710, 228)

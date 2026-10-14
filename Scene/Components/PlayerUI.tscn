@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://clia2gkyquq63"]
+
+[ext_resource type="Script" uid="uid://d4kwq127dhm5x" path="res://Script/player_ui.gd" id="1_7fhy8"]
+
+[node name="PlayerUI" type="CanvasLayer" unique_id=1047930563]
+script = ExtResource("1_7fhy8")
+
+[node name="EnergyLabel" type="Label" parent="." unique_id=1425461588]
+offset_right = 40.0
+offset_bottom = 23.0
+text = "Hello this is the player's ui"
+horizontal_alignment = 1
+vertical_alignment = 1

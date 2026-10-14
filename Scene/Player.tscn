@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://codbrps0dv0ko"]
+
+[ext_resource type="Script" uid="uid://cntkwu5leweko" path="res://Script/player.gd" id="1_3eeal"]
+[ext_resource type="Texture2D" uid="uid://dhwdd4rgf7ote" path="res://Asset/sprite/nanobot.png" id="1_6l3be"]
+[ext_resource type="PackedScene" uid="uid://e8lnyg6efs4r" path="res://Scene/Components/selectable.tscn" id="2_jvxg0"]
+[ext_resource type="PackedScene" uid="uid://bpevjyh3xrevj" path="res://Scene/Components/player_camera.tscn" id="4_fvocf"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_j8lcb"]
+
+[node name="PlayerBody" type="CharacterBody2D" unique_id=1747871278 groups=["Players"]]
+script = ExtResource("1_3eeal")
+
+[node name="Selectable" parent="." unique_id=1872794133 instance=ExtResource("2_jvxg0")]
+
+[node name="Player_Camera" parent="." unique_id=1774840281 instance=ExtResource("4_fvocf")]
+top_level = true
+position_smoothing_enabled = true
+position_smoothing_speed = 10.0
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=2080033330]
+path_postprocessing = 1
+debug_enabled = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1715272682]
+shape = SubResource("CircleShape2D_j8lcb")
+debug_color = Color(0, 0.6, 0.69803923, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="CollisionShape2D" unique_id=1878942416]
+rotation = -1.5707964
+texture = ExtResource("1_6l3be")
+
+[connection signal="deselected" from="Selectable" to="." method="_on_selectable_deselected"]
+[connection signal="selected" from="Selectable" to="." method="_on_selectable_selected"]

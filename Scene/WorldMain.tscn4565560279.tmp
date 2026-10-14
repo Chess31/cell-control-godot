@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ssob4ogrcoja"]
+
+[ext_resource type="PackedScene" uid="uid://d22oi1epynoo0" path="res://Scene/map.tscn" id="1_6nwcg"]
+[ext_resource type="Script" uid="uid://bb8ifupp1klbg" path="res://Script/Global_Autoload/game_manager.gd" id="1_hfyjg"]
+[ext_resource type="PackedScene" uid="uid://codbrps0dv0ko" path="res://Scene/Player.tscn" id="1_i3h7v"]
+[ext_resource type="PackedScene" uid="uid://diw1r68ktveea" path="res://Scene/simple_obstacle.tscn" id="2_6nwcg"]
+
+[node name="WorldRoot" type="Node2D" unique_id=999615986]
+script = ExtResource("1_hfyjg")
+
+[node name="Map" parent="." unique_id=1335696351 instance=ExtResource("1_6nwcg")]
+
+[node name="PlayerController" parent="." unique_id=397585109 instance=ExtResource("1_i3h7v")]
+position = Vector2(613, 231)
+
+[node name="Obstacles" type="Node2D" parent="." unique_id=506206031]
+
+[node name="SimpleObstacle" parent="Obstacles" unique_id=1635299973 instance=ExtResource("2_6nwcg")]
+position = Vector2(710, 228)

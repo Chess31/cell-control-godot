@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://55w75kp2hipl"]
+
+[ext_resource type="Texture2D" uid="uid://bjtxji2y5gkcv" path="res://Asset/sprite/turret.png" id="1_n2w5l"]
+[ext_resource type="Script" uid="uid://cfcb76qxbraqf" path="res://Script/Resource_Definitions/structure_definition.gd" id="1_sva6a"]
+[ext_resource type="PackedScene" uid="uid://dle2hklxwyd23" path="res://Scene/Structure/turret.tscn" id="2_vodu4"]
+
+[resource]
+script = ExtResource("1_sva6a")
+display_name = "Turret"
+structure_scene = ExtResource("2_vodu4")
+icon = ExtResource("1_n2w5l")
+hex_footprint = Array[Vector2i]([Vector2i(0, 0), Vector2i(0, -1), Vector2i(1, 0)])
+energy_cost = 10
+metadata/_custom_type_script = "uid://cfcb76qxbraqf"

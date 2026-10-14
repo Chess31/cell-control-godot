@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://e8lnyg6efs4r"]
+
+[ext_resource type="Script" uid="uid://cw4dgn1j4ds3e" path="res://Script/selectable.gd" id="1_k7puk"]
+
+[node name="Selectable" type="Node" unique_id=1872794133]
+script = ExtResource("1_k7puk")

@@ -1,0 +1,15 @@
+[gd_resource type="TileSet" format=3 uid="uid://bfdf0xxnuwy2n"]
+
+[ext_resource type="Texture2D" uid="uid://ookkm0ajp3oh" path="res://Asset/TileMaps/TileMap.png" id="2_kq1au"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_81yfc"]
+resource_name = "Wall_Parts"
+texture = ExtResource("2_kq1au")
+texture_region_size = Vector2i(16, 14)
+0:2/0 = 0
+1:2/0 = 0
+
+[resource]
+tile_shape = 3
+tile_size = Vector2i(14, 16)
+sources/0 = SubResource("TileSetAtlasSource_81yfc")

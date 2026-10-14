@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://dub15gaobrsdk"]
+
+[ext_resource type="PackedScene" uid="uid://bjm7xmiahxp00" path="res://Scene/bullet.tscn" id="1_3e4gg"]
+[ext_resource type="Script" uid="uid://c4i3qi645jv62" path="res://Script/Resource_Definitions/weapon_definition.gd" id="1_u64k8"]
+
+[resource]
+script = ExtResource("1_u64k8")
+level = 1
+damage = 30
+bullet_speed = 600
+bullet_spread = 5
+bullet = ExtResource("1_3e4gg")
+metadata/_custom_type_script = "uid://c4i3qi645jv62"
