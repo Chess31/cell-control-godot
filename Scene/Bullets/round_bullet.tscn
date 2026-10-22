@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://b800uq4g5swhk"]
+
+[ext_resource type="Script" uid="uid://b3sbj0rd1miwt" path="res://Script/bullet.gd" id="1_7te2d"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ulqry"]
+radius = 2.0
+
+[node name="Bullet" type="Area2D" unique_id=1349662105]
+script = ExtResource("1_7te2d")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128938045]
+position = Vector2(-2, 0)
+shape = SubResource("CircleShape2D_ulqry")
+debug_color = Color(1, 0, 0, 1)

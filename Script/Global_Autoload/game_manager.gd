@@ -4,6 +4,7 @@ extends Node2D
 @onready var preview_map: TileMapLayer = get_tree().current_scene.get_node("Map").get_child(1)
 
 var tile_healths: Dictionary = {}
+
 var item_pickup_scene: PackedScene = preload("res://Scene/item_pickup.tscn")
 
 var tiles_occupied_by_structures: Dictionary = {}
@@ -124,7 +125,7 @@ func check_can_place_structure(cells: Array[Vector2i]) -> bool:
 			return false
 
 	return true
-	
+
 func get_structure_footprint_cells(anchor_cell: Vector2i, pattern: TileMapPattern) -> Array[Vector2i]:
 	#normalized to the actual world tile coords via pattern mapping
 	

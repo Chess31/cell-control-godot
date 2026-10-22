@@ -1,18 +1,14 @@
 [gd_scene format=3 uid="uid://bjm7xmiahxp00"]
 
-[ext_resource type="Script" uid="uid://b3sbj0rd1miwt" path="res://Script/bullet.gd" id="1_w63l4"]
-[ext_resource type="PackedScene" uid="uid://b00pqm0oj0ygt" path="res://Scene/Components/motion_trail.tscn" id="2_k7h5k"]
+[ext_resource type="Script" uid="uid://b3sbj0rd1miwt" path="res://Script/bullet.gd" id="1_xu70r"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7p4ci"]
 size = Vector2(4, 2)
 
 [node name="Bullet" type="Area2D" unique_id=1349662105]
-script = ExtResource("1_w63l4")
+script = ExtResource("1_xu70r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=128938045]
 position = Vector2(-2, 0)
 shape = SubResource("RectangleShape2D_7p4ci")
 debug_color = Color(1, 1, 1, 1)
-
-[node name="MotionTrail" parent="." unique_id=352943280 instance=ExtResource("2_k7h5k")]
-visible = false

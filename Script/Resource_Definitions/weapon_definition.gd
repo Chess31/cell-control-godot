@@ -24,6 +24,7 @@ func fire(player,direction):
 	new_bullet.speed = bullet_speed
 	new_bullet.damage = damage
 	new_bullet.bullet_owner = player
+	new_bullet.bullet_team = player.get_team()
 
 	new_bullet.hit_detected.connect(GameManager._on_bullet_hit_detected)
 

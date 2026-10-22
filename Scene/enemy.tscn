@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://dmgp8qp5a0hhu"]
+
+[ext_resource type="Script" uid="uid://bqoe0nw8r7fad" path="res://Script/enemy.gd" id="1_yww8s"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_yww8s"]
+radius = 3.0
+
+[node name="Enemy" type="CharacterBody2D" unique_id=2108735810]
+script = ExtResource("1_yww8s")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=279961038]
+shape = SubResource("CircleShape2D_yww8s")
+debug_color = Color(1, 0, 0, 1)
+
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=1717269062]
+
+[node name="Fire_Rate_Timer" type="Timer" parent="." unique_id=1304476883]
+autostart = true
+
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_velocity_computed"]
+[connection signal="timeout" from="Fire_Rate_Timer" to="." method="_on_fire_rate_timer_timeout"]

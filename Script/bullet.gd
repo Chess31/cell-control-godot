@@ -6,8 +6,8 @@ var direction = null
 var speed = null
 var damage = null
 var bullet_owner = null
+var bullet_team = null
 
-#bullet movement via raycast to avoid collision tunneling
 func _physics_process(delta: float) -> void:
 	var start_position: Vector2 = global_position
 	var end_position: Vector2 = start_position + direction * speed * delta
@@ -22,11 +22,16 @@ func _physics_process(delta: float) -> void:
 	query.collide_with_bodies = true
 
 	#exclude this bullet and its owner from collision query
-	query.exclude = [get_rid(),bullet_owner.get_rid()]
+	var excluded_rids: Array[RID] = [get_rid()]
+
+	if is_instance_valid(bullet_owner):
+		excluded_rids.append(bullet_owner.get_rid())
+
+	query.exclude = excluded_rids
 
 	var result = get_world_2d().direct_space_state.intersect_ray(query)
 
-	if not result.is_empty() and not result.collider.is_in_group("no_bullet_collision"):
+	if not result.is_empty() and can_hit_target(result.collider) and not result.collider.is_in_group("no_bullet_collision"):
 		#set bullet position to the exact collision location
 		global_position = result.position
 		
@@ -39,3 +44,14 @@ func _physics_process(delta: float) -> void:
 		return
 
 	global_position = end_position
+
+func can_hit_target(target: Node) -> bool:
+	if not is_instance_valid(target):
+		return false
+
+	# Allow hitting terrain or objects that aren't combat entities.
+	if not target.has_method("get_team"):
+		return true
+
+	# Store the firing team's identity when the bullet is created.
+	return bullet_team != target.get_team()

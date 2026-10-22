@@ -1,4 +1,4 @@
-extends CharacterBody2D
+extends Entity
 
 var has_command := false
 var move_speed := 200.0

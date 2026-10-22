@@ -8,6 +8,7 @@
 [ext_resource type="Resource" uid="uid://dub15gaobrsdk" path="res://Resource/weapons/weapon_starter.tres" id="4_l02yq"]
 [ext_resource type="Resource" uid="uid://55w75kp2hipl" path="res://Resource/structure/turret.tres" id="5_wnnrw"]
 [ext_resource type="Script" uid="uid://c4i3qi645jv62" path="res://Script/Resource_Definitions/weapon_definition.gd" id="7_uen27"]
+[ext_resource type="PackedScene" uid="uid://dmgp8qp5a0hhu" path="res://Scene/enemy.tscn" id="9_l02yq"]
 
 [node name="WorldRoot" type="Node2D" unique_id=999615986]
 script = ExtResource("1_hfyjg")
@@ -20,8 +21,57 @@ equipped_weapon = ExtResource("4_l02yq")
 equipped_structure = ExtResource("5_wnnrw")
 available_structures = Array[ExtResource("4_6ibmm")]([ExtResource("5_wnnrw")])
 available_weapons = Array[ExtResource("7_uen27")]([ExtResource("4_l02yq")])
+team = 0
 
-[node name="StructureLayer" type="Node2D" parent="." unique_id=506206031]
+[node name="Team01" type="Node2D" parent="." unique_id=506206031]
 
-[node name="SimpleObstacle" parent="StructureLayer" unique_id=1635299973 instance=ExtResource("2_6nwcg")]
+[node name="SimpleObstacle" parent="Team01" unique_id=1635299973 instance=ExtResource("2_6nwcg")]
 position = Vector2(710, 228)
+
+[node name="Enemy" parent="." unique_id=2108735810 instance=ExtResource("9_l02yq")]
+position = Vector2(421, 55)
+
+[node name="Enemy2" parent="." unique_id=700592886 instance=ExtResource("9_l02yq")]
+position = Vector2(422, 64)
+
+[node name="Enemy3" parent="." unique_id=1080832648 instance=ExtResource("9_l02yq")]
+position = Vector2(414, 64)
+
+[node name="Enemy4" parent="." unique_id=1848923308 instance=ExtResource("9_l02yq")]
+position = Vector2(408, 57)
+
+[node name="Enemy5" parent="." unique_id=218749257 instance=ExtResource("9_l02yq")]
+position = Vector2(433, 60)
+
+[node name="Enemy6" parent="." unique_id=772913116 instance=ExtResource("9_l02yq")]
+position = Vector2(427, 48)
+
+[node name="Enemy7" parent="." unique_id=838402349 instance=ExtResource("9_l02yq")]
+position = Vector2(417, 48)
+
+[node name="Enemy8" parent="." unique_id=378651842 instance=ExtResource("9_l02yq")]
+position = Vector2(445, 49)
+
+[node name="Enemy9" parent="." unique_id=502780660 instance=ExtResource("9_l02yq")]
+position = Vector2(400, 37)
+
+[node name="Enemy10" parent="." unique_id=1580429634 instance=ExtResource("9_l02yq")]
+position = Vector2(420, 40)
+
+[node name="Enemy11" parent="." unique_id=1825624603 instance=ExtResource("9_l02yq")]
+position = Vector2(400, 55)
+
+[node name="Enemy12" parent="." unique_id=1003298270 instance=ExtResource("9_l02yq")]
+position = Vector2(392, 41)
+
+[node name="Enemy13" parent="." unique_id=1979746552 instance=ExtResource("9_l02yq")]
+position = Vector2(392, 54)
+
+[node name="Enemy14" parent="." unique_id=505046697 instance=ExtResource("9_l02yq")]
+position = Vector2(386, 47)
+
+[node name="Enemy15" parent="." unique_id=1919460067 instance=ExtResource("9_l02yq")]
+position = Vector2(397, 61)
+
+[node name="Enemy16" parent="." unique_id=246374635 instance=ExtResource("9_l02yq")]
+position = Vector2(407, 43)
