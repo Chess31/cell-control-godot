@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_we5t4")
+display_name = &"EnemyBlaster"
 damage = 1
 bullet_speed = 50
 bullet_spread = 15

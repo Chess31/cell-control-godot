@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="Weapon" format=3 uid="uid://xg0a1j8qeun5"]
+
+[ext_resource type="PackedScene" uid="uid://b800uq4g5swhk" path="res://Scene/Bullets/round_bullet.tscn" id="1_26f4d"]
+[ext_resource type="Script" uid="uid://c4i3qi645jv62" path="res://Script/Resource_Definitions/weapon_definition.gd" id="2_4oggv"]
+
+[resource]
+script = ExtResource("2_4oggv")
+display_name = &"Zapper"
+level = 1
+damage = 10
+bullet_speed = 200
+bullet_spread = 1
+bullet = ExtResource("1_26f4d")
+metadata/_custom_type_script = "uid://c4i3qi645jv62"

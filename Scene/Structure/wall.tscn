@@ -1,0 +1,26 @@
+[gd_scene format=3 uid="uid://dqhaww12e3bma"]
+
+[ext_resource type="TileSet" uid="uid://riruik75pvtt" path="res://Resource/tile_set/world_tile_set.tres" id="2_j4jyi"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_ioljd"]
+noise_type = 2
+frequency = 0.1756
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_n3c0x"]
+width = 16
+height = 16
+noise = SubResource("FastNoiseLite_ioljd")
+
+[node name="Wall" type="Area2D" unique_id=478144874]
+
+[node name="Structure_Footprint" type="TileMapLayer" parent="." unique_id=928292187]
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray(0, 0, 255, 255, 255, 255, 0, 0, 1, 0, 0, 0, 0, 0)
+tile_set = ExtResource("2_j4jyi")
+navigation_enabled = false
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1053874604]
+position = Vector2(1.9073486e-06, 0)
+rotation = 3.1415927
+scale = Vector2(0.655, 0.655)
+texture = SubResource("NoiseTexture2D_n3c0x")

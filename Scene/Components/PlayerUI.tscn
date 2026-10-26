@@ -1,6 +1,11 @@
 [gd_scene format=3 uid="uid://clia2gkyquq63"]
 
 [ext_resource type="Script" uid="uid://d4kwq127dhm5x" path="res://Script/player_ui.gd" id="1_7fhy8"]
+[ext_resource type="Script" uid="uid://x6btgvm8oryv" path="res://Script/shop.gd" id="2_js6ic"]
+[ext_resource type="Script" uid="uid://dvnj3vkf0trsl" path="res://Script/Resource_Definitions/shop_item_definition.gd" id="3_byrgt"]
+[ext_resource type="PackedScene" uid="uid://dxh26n5g0t50" path="res://Scene/Components/ShopOffering.tscn" id="3_rfpai"]
+[ext_resource type="Resource" uid="uid://b6owjs8302txx" path="res://Resource/shop_offerings/zapper_shop_item.tres" id="4_pgdgq"]
+[ext_resource type="Resource" uid="uid://5j0bdhd5bwl4" path="res://Resource/shop_offerings/turret_shop_item.tres" id="6_pgdgq"]
 
 [node name="PlayerUI" type="CanvasLayer" unique_id=1047930563]
 script = ExtResource("1_7fhy8")
@@ -8,6 +13,100 @@ script = ExtResource("1_7fhy8")
 [node name="EnergyLabel" type="Label" parent="." unique_id=1425461588]
 offset_right = 40.0
 offset_bottom = 23.0
-text = "Hello this is the player's ui"
+text = "Energy: ###"
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="CoreShop" type="Control" parent="." unique_id=322835072]
+layout_mode = 3
+anchors_preset = 0
+offset_left = 1.0
+offset_top = -2.0
+offset_right = 1.0
+offset_bottom = -2.0
+
+[node name="Home" type="PanelContainer" parent="CoreShop" unique_id=2107252283]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 348.0
+offset_right = 317.0
+offset_bottom = 542.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoreShop/Home" unique_id=232116942]
+layout_mode = 2
+
+[node name="TitleText" type="Label" parent="CoreShop/Home/VBoxContainer" unique_id=771629588]
+layout_mode = 2
+text = "Team Core"
+
+[node name="WeaponShopButton" type="Button" parent="CoreShop/Home/VBoxContainer" unique_id=1544549471]
+layout_mode = 2
+text = "Buy Weapons"
+
+[node name="StructureShopButton" type="Button" parent="CoreShop/Home/VBoxContainer" unique_id=325440503]
+layout_mode = 2
+text = "Buy Structures"
+
+[node name="Deselect" type="Button" parent="CoreShop/Home/VBoxContainer" unique_id=1589844388]
+layout_mode = 2
+text = "Exit"
+
+[node name="WeaponShop" type="PanelContainer" parent="CoreShop" unique_id=497318877]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 348.0
+offset_right = 317.0
+offset_bottom = 542.0
+script = ExtResource("2_js6ic")
+item_catalog = Array[ExtResource("3_byrgt")]([ExtResource("4_pgdgq")])
+item_button_scene = ExtResource("3_rfpai")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoreShop/WeaponShop" unique_id=850449465]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CoreShop/WeaponShop/VBoxContainer" unique_id=1108459097]
+layout_mode = 2
+
+[node name="AvailableWeapons" type="Label" parent="CoreShop/WeaponShop/VBoxContainer/HFlowContainer" unique_id=872948496]
+layout_mode = 2
+text = "Available Weapons:"
+
+[node name="BackButton" type="Button" parent="CoreShop/WeaponShop/VBoxContainer/HFlowContainer" unique_id=1958835736]
+layout_mode = 2
+text = "Exit"
+
+[node name="ItemList" type="VBoxContainer" parent="CoreShop/WeaponShop/VBoxContainer" unique_id=1944957868]
+layout_mode = 2
+
+[node name="StructureShop" type="PanelContainer" parent="CoreShop" unique_id=1129951699]
+layout_mode = 0
+offset_left = -1.0
+offset_top = 348.0
+offset_right = 317.0
+offset_bottom = 542.0
+script = ExtResource("2_js6ic")
+item_catalog = Array[ExtResource("3_byrgt")]([ExtResource("6_pgdgq")])
+item_button_scene = ExtResource("3_rfpai")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CoreShop/StructureShop" unique_id=1388390884]
+layout_mode = 2
+
+[node name="HFlowContainer" type="HFlowContainer" parent="CoreShop/StructureShop/VBoxContainer" unique_id=641877686]
+layout_mode = 2
+
+[node name="AvailableStructures" type="Label" parent="CoreShop/StructureShop/VBoxContainer/HFlowContainer" unique_id=1449789482]
+layout_mode = 2
+text = "Available Structures:"
+
+[node name="BackButton" type="Button" parent="CoreShop/StructureShop/VBoxContainer/HFlowContainer" unique_id=2021334341]
+layout_mode = 2
+text = "Exit"
+
+[node name="ItemList" type="VBoxContainer" parent="CoreShop/StructureShop/VBoxContainer" unique_id=1931612287]
+layout_mode = 2
+
+[connection signal="pressed" from="CoreShop/Home/VBoxContainer/WeaponShopButton" to="." method="_on_weapon_shop_button_pressed"]
+[connection signal="pressed" from="CoreShop/Home/VBoxContainer/StructureShopButton" to="." method="_on_structure_shop_button_pressed"]
+[connection signal="pressed" from="CoreShop/Home/VBoxContainer/Deselect" to="." method="_on_deselect_pressed"]
+[connection signal="pressed" from="CoreShop/WeaponShop/VBoxContainer/HFlowContainer/BackButton" to="." method="_on_back_button_pressed"]
+[connection signal="pressed" from="CoreShop/StructureShop/VBoxContainer/HFlowContainer/BackButton" to="." method="_on_back_button_pressed"]

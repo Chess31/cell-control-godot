@@ -1,5 +1,6 @@
 extends Entity
 
+var team_core: Node = null
 var has_command := false
 var move_speed := 200.0
 var movement_mode = MovementMode.DIRECT
@@ -11,10 +12,10 @@ var energy := 0
 
 @onready var selectable: Selectable = $Selectable
 
-@export var equipped_weapon: Weapon
-@export var equipped_structure: Structure
-@export var available_structures: Array[Structure] = []
-@export var available_weapons: Array[Weapon] = []
+var equipped_weapon: Weapon
+var equipped_structure: Structure
+@onready var available_structures: Array[Structure] = [equipped_structure]
+@onready var available_weapons: Array[Weapon] = [equipped_weapon]
 
 enum MovementMode {
 	DIRECT,
@@ -65,6 +66,7 @@ func _physics_process(_delta: float) -> void:
 					var nav_point_direction = global_position.direction_to(next_path_position)
 					
 					velocity = nav_point_direction * move_speed
+		
 		look_at(mouse_pos)
 		move_and_slide()
 
@@ -85,6 +87,18 @@ func _process(_delta: float) -> void:
 					if equipped_weapon:
 						var bullet_direction = global_position.direction_to(get_global_mouse_position())
 						equipped_weapon.fire(self,bullet_direction)
+				if Input.is_action_just_pressed("scroll_down"):
+					var current_index = available_weapons.find(equipped_weapon)
+					if current_index != -1:
+						var next_index = (current_index + 1) % available_weapons.size()
+						equipped_weapon = available_weapons[next_index]
+					#print(equipped_weapon.display_name)
+				if Input.is_action_just_pressed("scroll_up"):
+					var current_index = available_weapons.find(equipped_weapon)
+					if current_index != -1:
+						var next_index = (current_index - 1) % available_weapons.size()
+						equipped_weapon = available_weapons[next_index]
+					#print(equipped_weapon.display_name)
 			
 			PlayerMode.STRUCTURE_PLACEMENT:
 				#preview equipped structure
@@ -94,6 +108,18 @@ func _process(_delta: float) -> void:
 				if Input.is_action_just_pressed("action"):
 					if equipped_structure:
 						GameManager.place_structure(self,equipped_structure,get_global_mouse_position())
+				if Input.is_action_just_pressed("scroll_down"):
+					var current_index = available_structures.find(equipped_structure)
+					if current_index != -1:
+						var next_index = (current_index + 1) % available_structures.size()
+						equipped_structure = available_structures[next_index]
+					#print(equipped_structure.display_name)
+				if Input.is_action_just_pressed("scroll_up"):
+					var current_index = available_structures.find(equipped_structure)
+					if current_index != -1:
+						var next_index = (current_index - 1) % available_structures.size()
+						equipped_structure = available_structures[next_index]
+					#print(equipped_structure.display_name)
 
 func add_item(item, quantity):
 	if item.item_type == 0:

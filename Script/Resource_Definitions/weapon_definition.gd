@@ -1,6 +1,7 @@
 extends Resource
 class_name Weapon
 
+@export var display_name: StringName
 @export var type: weapon_types
 @export var level: int
 @export var damage: int

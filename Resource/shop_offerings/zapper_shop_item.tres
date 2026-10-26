@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://b6owjs8302txx"]
+
+[ext_resource type="Script" uid="uid://dvnj3vkf0trsl" path="res://Script/Resource_Definitions/shop_item_definition.gd" id="1_mjqfm"]
+[ext_resource type="Texture2D" uid="uid://23omkxjqqlv0" path="res://icon.svg" id="1_vnflf"]
+[ext_resource type="Resource" uid="uid://xg0a1j8qeun5" path="res://Resource/weapons/zapper.tres" id="3_cwdvq"]
+
+[resource]
+script = ExtResource("1_mjqfm")
+id = &"zapper"
+display_name = "Zapper"
+description = "A new weapon!"
+icon = ExtResource("1_vnflf")
+cost = 100
+weapon = ExtResource("3_cwdvq")
+metadata/_custom_type_script = "uid://dvnj3vkf0trsl"

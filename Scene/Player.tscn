@@ -9,6 +9,7 @@
 
 [node name="PlayerBody" type="CharacterBody2D" unique_id=1747871278 groups=["Players"]]
 script = ExtResource("1_3eeal")
+team = 0
 
 [node name="Selectable" parent="." unique_id=1872794133 instance=ExtResource("2_jvxg0")]
 

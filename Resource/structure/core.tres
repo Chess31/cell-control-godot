@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://cfrleds0siyfa"]
+
+[ext_resource type="Script" uid="uid://cfcb76qxbraqf" path="res://Script/Resource_Definitions/structure_definition.gd" id="2_l4n1y"]
+[ext_resource type="PackedScene" uid="uid://cbip7rd23m2v7" path="res://Scene/Structure/core.tscn" id="2_n7m4p"]
+
+[resource]
+script = ExtResource("2_l4n1y")
+display_name = "Core"
+structure_scene = ExtResource("2_n7m4p")
+metadata/_custom_type_script = "uid://cfcb76qxbraqf"

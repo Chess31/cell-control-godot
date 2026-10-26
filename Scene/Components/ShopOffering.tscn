@@ -1,0 +1,43 @@
+[gd_scene format=3 uid="uid://dxh26n5g0t50"]
+
+[ext_resource type="Script" uid="uid://b3ijyamqmc4ge" path="res://Script/shop_offering.gd" id="1_h177l"]
+[ext_resource type="Texture2D" uid="uid://23omkxjqqlv0" path="res://icon.svg" id="2_rkmrv"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_rkmrv"]
+font_size = 8
+
+[node name="ShopOffering" type="Button" unique_id=514145249]
+custom_minimum_size = Vector2(200, 50)
+script = ExtResource("1_h177l")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=274138336]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Icon" type="TextureRect" parent="HBoxContainer" unique_id=102245349]
+custom_minimum_size = Vector2(50, 50)
+layout_mode = 2
+texture = ExtResource("2_rkmrv")
+expand_mode = 1
+stretch_mode = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=1307592052]
+layout_mode = 2
+
+[node name="ItemName" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1273220156]
+layout_mode = 2
+text = "Item Name"
+label_settings = SubResource("LabelSettings_rkmrv")
+
+[node name="Description" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1997439135]
+layout_mode = 2
+text = "This is an item description"
+label_settings = SubResource("LabelSettings_rkmrv")
+
+[node name="Cost" type="Label" parent="HBoxContainer/VBoxContainer" unique_id=1821811701]
+layout_mode = 2
+text = "Cost: 100"
+label_settings = SubResource("LabelSettings_rkmrv")
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="ShopItem" format=3 uid="uid://5j0bdhd5bwl4"]
+
+[ext_resource type="Texture2D" uid="uid://bjtxji2y5gkcv" path="res://Asset/sprite/turret.png" id="1_0i5ep"]
+[ext_resource type="Script" uid="uid://dvnj3vkf0trsl" path="res://Script/Resource_Definitions/shop_item_definition.gd" id="2_kphyd"]
+[ext_resource type="Resource" uid="uid://55w75kp2hipl" path="res://Resource/structure/turret.tres" id="3_0i5ep"]
+
+[resource]
+script = ExtResource("2_kphyd")
+id = &"turret"
+display_name = "Turret"
+description = "A useful defensive structure."
+icon = ExtResource("1_0i5ep")
+cost = 100
+category = 1
+structure = ExtResource("3_0i5ep")
+metadata/_custom_type_script = "uid://dvnj3vkf0trsl"

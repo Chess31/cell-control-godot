@@ -5,6 +5,7 @@
 
 [resource]
 script = ExtResource("1_u64k8")
+display_name = &"Blaster"
 level = 1
 damage = 30
 bullet_speed = 600

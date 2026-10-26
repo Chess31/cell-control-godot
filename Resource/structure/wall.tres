@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Structure" format=3 uid="uid://cwth7p4j5sj0s"]
+
+[ext_resource type="PackedScene" uid="uid://dqhaww12e3bma" path="res://Scene/Structure/wall.tscn" id="2_5v25p"]
+[ext_resource type="Script" uid="uid://cfcb76qxbraqf" path="res://Script/Resource_Definitions/structure_definition.gd" id="2_cru1t"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_6e6om"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_cru1t"]
+noise = SubResource("FastNoiseLite_6e6om")
+
+[resource]
+script = ExtResource("2_cru1t")
+display_name = "Wall"
+structure_scene = ExtResource("2_5v25p")
+icon = SubResource("NoiseTexture2D_cru1t")
+energy_cost = 10
+metadata/_custom_type_script = "uid://cfcb76qxbraqf"

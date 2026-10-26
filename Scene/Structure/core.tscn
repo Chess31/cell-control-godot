@@ -1,0 +1,24 @@
+[gd_scene format=4 uid="uid://cbip7rd23m2v7"]
+
+[ext_resource type="Script" uid="uid://cmbrpsc6kd687" path="res://Script/Structure/core.gd" id="1_ktbcp"]
+[ext_resource type="TileSet" uid="uid://riruik75pvtt" path="res://Resource/tile_set/world_tile_set.tres" id="2_l7483"]
+[ext_resource type="PackedScene" uid="uid://e8lnyg6efs4r" path="res://Scene/Components/selectable.tscn" id="3_l7483"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_74cr3"]
+radius = 20.0
+
+[node name="Core" type="CharacterBody2D" unique_id=1174478816]
+script = ExtResource("1_ktbcp")
+
+[node name="Structure_Footprint" type="TileMapLayer" parent="." unique_id=948287715]
+position = Vector2(0, 4)
+tile_map_data = PackedByteArray("AAAAAAAAAAABAAAAAAAAAP//AAABAAAAAAABAAAAAAABAAAAAAAAAAEAAAABAAAAAAABAAEAAAABAAAAAAACAAAAAAABAAAAAAABAP//AAABAAAAAAA=")
+tile_set = ExtResource("2_l7483")
+navigation_enabled = false
+
+[node name="Selectable" parent="." unique_id=1872794133 instance=ExtResource("3_l7483")]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=762217373]
+position = Vector2(21, 12)
+shape = SubResource("CircleShape2D_74cr3")
+debug_color = Color(0, 1, 1, 1)

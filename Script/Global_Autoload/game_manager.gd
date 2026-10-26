@@ -9,9 +9,14 @@ var item_pickup_scene: PackedScene = preload("res://Scene/item_pickup.tscn")
 
 var tiles_occupied_by_structures: Dictionary = {}
 
+func _ready() -> void:
+	game_start()
 
 #     GLOBAL SYSTEMS AND FUNCTIONS     #
 
+func game_start():
+	var core_spawnpoint = get_tree().current_scene.get_node("Team01/CoreSpawnMarker").global_position
+	place_structure(null, preload("res://Resource/structure/core.tres"), core_spawnpoint)
 
 func _on_bullet_hit_detected(target,damage,source,hit_position):
 	if target.has_method("take_damage"):
@@ -87,7 +92,7 @@ func preview_structure(_structure_owner: CharacterBody2D, structure: Structure, 
 
 func place_structure(structure_owner: CharacterBody2D, structure: Structure, placement_position: Vector2) -> bool:
 
-	if structure_owner.energy < structure.energy_cost:
+	if is_instance_valid(structure_owner) and structure_owner.energy < structure.energy_cost:
 		return false
 
 	var new_structure = structure.structure_scene.instantiate()
@@ -103,7 +108,8 @@ func place_structure(structure_owner: CharacterBody2D, structure: Structure, pla
 		new_structure.free()
 		return false
 
-	structure_owner.energy -= structure.energy_cost
+	if is_instance_valid(structure_owner):
+		structure_owner.energy -= structure.energy_cost
 
 	map.add_child(new_structure)
 	new_structure.global_position = map.to_global(map.map_to_local(anchor_cell))
@@ -140,3 +146,20 @@ func get_structure_footprint_cells(anchor_cell: Vector2i, pattern: TileMapPatter
 		cells.append(cell)
 	
 	return cells
+
+func purchase_item(item: ShopItem, player: Entity) -> bool:
+	if item == null:
+		print("No Item!!!")
+		return false
+
+	if player.energy < item.cost:
+		return false
+
+	player.energy -= item.cost
+	match item.category:
+		item.CATAGORY.WEAPON:
+			player.available_weapons.append(item.weapon)
+		item.CATAGORY.STRUCTURE:
+			player.available_structures.append(item.structure)
+
+	return true
